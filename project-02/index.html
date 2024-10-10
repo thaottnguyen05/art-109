@@ -1,34 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Social Media?</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distorted Marketing Claims</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Twisted Social Media Reality</h1>
-        <p>Click on the posts to reveal the truth!</p>
-    </header>
-    <main>
-        <section class="social-media-posts">
-            <article class="post" onclick="revealPost(this)">
-                <img src="distorted-image1.jpg" alt="Distorted image 1" class="post-image">
-                <p class="scrambled-text">Thsi is a smaple psto.</p>
-            </article>
-            <article class="post" onclick="revealPost(this)">
-                <img src="distorted-image2.jpg" alt="Distorted image 2" class="post-image">
-                <p class="scrambled-text">Evrthig is faek.</p>
-            </article>
-            <article class="post" onclick="revealPost(this)">
-                <img src="distorted-image3.jpg" alt="Distorted image 3" class="post-image">
-                <p class="scrambled-text">Lfe is gnare.</p>
-            </article>
-            <!-- Add more posts as needed -->
-        </section>
-    </main> 
+  <div class="ad-container" id="originalAd">
+    <h1>Lose 10 pounds in just 10 days with our tea!</h1>
+    <p>Guaranteed results!</p>
+  </div>
 
-    <script src="script.js"></script>
+  <div class="ad-container distorted" id="distortedAd" style="display: none;">
+    <h1>Lose 20 pounds in 3 days with our miracle tea!</h1>
+    <p><strong>GUARANTEED!</strong> <span class="exaggeration">Life-changing results!</span></p>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
