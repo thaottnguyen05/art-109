@@ -11,7 +11,7 @@ import { OrbitControls } from 'https://unpkg.com/three@0.162.0/examples/jsm/cont
 
 // ~~~~~~~~~~~~~~~~ Declare Global Variables~~~~~~~~~~~~~~~~
 let scene, camera, renderer, cube, torus;
-
+let sceneContainer = document.querySelector("#scene-container"); 
 
 // ~~~~~~~~~~~~~~~~ Initialize Scene in init() ~~~~~~~~~~~~~~~~
 function init() {
@@ -19,19 +19,16 @@ function init() {
     // ~~~~~~Set up scene, camera, + renderer ~~~~~~
 
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera = new THREE.PerspectiveCamera(75, sceneContainer.clientWidth / sceneContainer.clientHeight, 0.1, 1000);
 
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true});
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(sceneContainer.clientWidth, sceneContainer.clientHeight);
+    sceneContainer.appendChild(renderer.domElement);
 
 
     // ~~~~~~ Initiate add-ons ~~~~~~
 
-    // can't use orbit controls with canvas as background
     const controls = new OrbitControls(camera, renderer.domElement);
-
     // const loader = new GLTFLoader(); // to load 3d models
 
 
@@ -67,7 +64,7 @@ function init() {
 
 
     // ~~~~~~Position Camera~~~~~~
-    camera.position.z = 15;
+    camera.position.z = 4;
 
 
 }
@@ -94,9 +91,9 @@ function animate() {
 }
 
 function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = sceneContainer.clientWidth / sceneContainer.clientHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(sceneContainer.clientWidth, sceneContainer.clientHeight);
 
 }
 
